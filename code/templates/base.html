@@ -7,13 +7,17 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
     <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
     <link href='http://fonts.googleapis.com/css?family=Roboto:300' rel='stylesheet' type='text/css'>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
+    <script src="{{ url_for('static',filename='js/tipsy.js') }}"></script>
    
-    <!--Select 2
-    <link href="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.0/css/select2.min.css" rel="stylesheet" />
-    <script src="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.0/js/select2.min.js"></script>-->
-    <script src="{{ url_for('static',filename='js/layout.js') }}"></script>
     <link href="{{ url_for('static',filename='css/style.css') }}" rel="stylesheet" />
     {% block head %}{% endblock %}
+
+    <style>
+    .list-group-item {
+        border: none;
+    }
+    </style>
 
 </head>
 <meta charset="utf-8">
@@ -22,12 +26,157 @@
 <div id="fade"></div>
     <div class="row">
 
-        {% extends "navigation.html" %}
+    <!-- Navigation-->
+    <div class="navbar">
+    <div class="col-md-2 nipy-nav">
+    <h1 class="logo">Nipy</h1>
 
+    <div class="list-group panel">
+    <a href="/blog" class="list-group-item list-group-item strong">Blog </a>
+    <a href="#projects" class="list-group-item list-group-item strong" data-toggle="collapse">Projects <i class="fa fa-caret-down"></i></a>
+    <div class="collapse" id="projects">
+      {% for project in projects %}
+          <a href='#collapse{{ project["count"] }}' class="list-group-item strong" data-toggle="collapse">{{ project["class"] }}<i class="fa fa-caret-down"></i></a>
+              <div class="collapse" id="collapse{{ project["count"] }}">
+                  {% for name, tag, class in project["project"] %}
+                 <a href="/project/{{ tag }}" class="list-group-item strong">{{ name }}<i class="fa fa-caret-down"></i></a>
+                  {% endfor %}
+              </div>
+      {% endfor %}
+    </div>  
+  </div>
+</div><!-- close navigation-->
         <div class="container">
-            <div class="col-md-10 nipy-content">
+            <div class="col-md-9 nipy-content">
             {% block content %}{% endblock %}            
             </div>
+           <!-- Sidebar with logo -->
+            <div class="col-md-1">
+                <div class="row">
+                    <div class="col-md-2">
+                        <div id="brain"></div>
+                    </div>
+                    <div class="col-md-10">
+                        <img src="{{ url_for('static',filename='img/nipy.svg') }}">
+                    </div>
+                </div>
         </div><!-- close content container-->
+<script>
+
+// Tooltips
+var tip = d3.tip()
+    .attr('class', 'd3-tip')
+    .offset([-10, 0])
+    .html(function(d) {
+        return "<strong>Example: </strong><span style='color:tomato'>" + d.example + "</span><br><strong>Lemmas: </strong><span style='color:yellow'>" + d.lemmanames + "</span><br><strong>LexName: </strong><span style='color:orange'>" + d.lexname + "</span><br><strong>Part of Speech: </strong><span style='color:cornflowerBlue'>" + d.pos + "</span><br><strong>Similar Words:</strong><span style='color:blue'> " + d.similartos + "</span>";
+})
+
+
+// D3
+
+
+var n = {{ n }}; // number of distinct clusters (classes)
+var m = {{ m }}; // total objects
+ 
+// Colors to match nipy logo
+var colors = ["#000000","#FFFFCE","#AAA89","#669900","#CCCCCC"]
+
+var nodes = [
+    {% for project in projects %}
+        {% for name, tag, class in project["project"] %}
+            {% if project["count"] != "{{ n }}" %}
+                {"cluster": {{ project["count"] }}, radius: "10", color: colors[{{ project["count"]}} ]},
+            {% else %}
+                {"cluster": {{ project["count"] }}, radius: "10", color: colors[{{ project["count"]}}}
+            {% endif %}
+        {% endfor %}
+    {% endfor %}
+    ];
+
+var width = 100,
+    height = 50,
+    padding = 10, // separation between nodes
+    maxRadius = 10;
+
+var x = d3.scale.ordinal()
+    .domain(d3.range(m))
+    .rangePoints([0, width], 1);
+
+var nodes = d3.range(n).map(function(ii) {
+  var i = nodes[ii].cluster,
+      v = (i + 1) / m * -Math.log(Math.random());
+  return {
+    radius: Math.sqrt(v) * maxRadius,
+    color: nodes[ii].color,
+    cy: x(i),
+    cx: width / 2
+  };
+});
+
+var force = d3.layout.force()
+    .nodes(nodes)
+    .size([width, height])
+    .gravity(0)
+    .charge(0)
+    .on("tick", tick)
+    .start();
+
+var svg = d3.select("#brain").append("svg")
+    .attr("width", width)
+    .attr("height", height);
+
+var circle = svg.selectAll("circle")
+    .data(nodes)
+  .enter().append("circle")
+    .attr("r", function(d) { return d.radius; })
+    .style("fill", function(d) { return d.color; })
+    .call(force.drag);
+
+function tick(e) {
+  circle
+      .each(gravity(.2 * e.alpha))
+      .each(collide(.5))
+      .attr("cx", function(d) { return d.x = Math.max(d.radius, Math.min(width - d.radius, d.x)); })
+      .attr("cy", function(d) { return d.y = Math.max(d.radius, Math.min(height - d.radius, d.y)); });
+}
+
+// Move nodes toward cluster focus.
+function gravity(alpha) {
+  return function(d) {
+    d.y += (d.cy - d.y) * alpha;
+    d.x += (d.cx - d.x) * alpha;
+  };
+}
+
+// Resolve collisions between nodes.
+function collide(alpha) {
+  var quadtree = d3.geom.quadtree(nodes);
+  return function(d) {
+    var r = d.radius + maxRadius + padding,
+        nx1 = d.x - r,
+        nx2 = d.x + r,
+        ny1 = d.y - r,
+        ny2 = d.y + r;
+    quadtree.visit(function(quad, x1, y1, x2, y2) {
+      if (quad.point && (quad.point !== d)) {
+        var x = d.x - quad.point.x,
+            y = d.y - quad.point.y,
+            l = Math.sqrt(x * x + y * y),
+            r = d.radius + quad.point.radius + (d.color !== quad.point.color) * padding;
+        if (l < r) {
+          l = (l - r) / l * alpha;
+          d.x -= x *= l;
+          d.y -= y *= l;
+          quad.point.x += x;
+          quad.point.y += y;
+        }
+      }
+      return x1 > nx2 || x2 < nx1 || y1 > ny2 || y2 < ny1;
+    });
+  };
+}
+
+</script>    
+</div><!-- close right sidebar-->
     </div><!--Close row--> 
 </html>

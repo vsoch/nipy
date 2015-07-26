@@ -1,4 +1,4 @@
-name	markdown_tag	class	
+name	markdown_tag	class
 Nibabel	nibabel	File I/O and data management
 Scitran scitran	SDM	File I/O and data management
 Nilearn	nilearn	Functional MRI

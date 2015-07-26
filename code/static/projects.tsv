@@ -1,0 +1,10 @@
+name	markdown_tag	class	
+Nibabel	nibabel	File I/O and data management
+Scitran scitran	SDM	File I/O and data management
+Nilearn	nilearn	Functional MRI
+Nipy	nipy	Functional MRI
+Nitime	nitime	Functional MRI
+PyMVPA	pymvpa	Functional MRI
+Dipy	dipy	Diffusion MRI
+MNE	mne	Human electrophysiology
+Nipype	nipype	Analysis pipeline management

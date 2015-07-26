@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Nipy Blog</h1>
+<ul class="page-list">
+  {% for project in projects %}
+      <li><a href="{{ url_for('page', path=page.path) }}">
+          {{ page.meta.title }}
+      </a></li>
+  {% endfor %}
+</ul>
+{% endblock %}

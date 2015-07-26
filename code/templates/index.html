@@ -3,26 +3,7 @@
 
 <h1>Nipy</h1>
 
-       <div id="trait" class="col-md-8">
-           <h1>{{ behavior }}</h1>
-       </div>
-       <div class="col-md-2">
-           <h4>Definition</h4>
-           <div class="well" id="definition">
-               mouse over <img height="20px" src="http://png.findicons.com/files/icons/2770/ios_7_icons/128/brain_filled.png"/> for definition
-           </div>
-           <a onclick="showModal()" href="#" class="btn btn-xs btn-default"><span class="glyphicon glyphicon-question-sign"></span> About</a>
-           <a href="{{ url_for('static',filename='behaviors_cnp.zip') }}" class="btn btn-xs btn-default"><span class="glyphicon glyphicon-arrow-down"></span> Download</a> <a href="/cattell" class="btn btn-xs btn-default"><span class="glyphicon glyphicon-eye-open"></span> Cattell's</a>
-       </div>
 
-
-<ul class="page-list">
-  {% for page in pages %}
-      <li><a href="{{ url_for('page', path=page.path) }}">
-          {{ page.meta.title }}
-      </a>- {{ page.meta.date }}</li>
-  {% endfor %}
-</ul>
 
 <script>
 

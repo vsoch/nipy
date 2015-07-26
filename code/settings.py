@@ -2,7 +2,7 @@
 
 import os
 
-REPO_NAME = "flask-ghpages-example"  # Used for FREEZER_BASE_URL
+REPO_NAME = "nipy.github.io"  # Used for FREEZER_BASE_URL
 DEBUG = True
 
 # Assumes the app is located in the same directory
@@ -22,6 +22,9 @@ FREEZER_DESTINATION = PROJECT_ROOT
 FREEZER_BASE_URL = "http://localhost/{0}".format(REPO_NAME)
 FREEZER_REMOVE_EXTRA_FILES = False  # IMPORTANT: If this is True, all app files
                                     # will be deleted when you run the freezer
+
+# Flatpages are markdown files for blog posts.
+# Pages for projects (optional) should be generated as templates.
 FLATPAGES_MARKDOWN_EXTENSIONS = ['codehilite']
-FLATPAGES_ROOT = os.path.join(APP_DIR, 'pages')
+FLATPAGES_ROOT = os.path.join(APP_DIR, 'blog')
 FLATPAGES_EXTENSION = '.md'

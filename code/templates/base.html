@@ -36,10 +36,10 @@
     <a href="#projects" class="list-group-item list-group-item strong" data-toggle="collapse">Projects <i class="fa fa-caret-down"></i></a>
     <div class="collapse" id="projects">
       {% for project in projects %}
-          <a href='#collapse{{ project["count"] }}' class="list-group-item strong" data-toggle="collapse">{{ project["class"] }}<i class="fa fa-caret-down"></i></a>
+          <a href='#collapse{{ project["count"] }}' class="list-group-item strong list-class" data-toggle="collapse">{{ project["class"] }}<i class="fa fa-caret-down"></i></a>
               <div class="collapse" id="collapse{{ project["count"] }}">
                   {% for name, tag, class in project["project"] %}
-                 <a href="/project/{{ tag }}" class="list-group-item strong">{{ name }}<i class="fa fa-caret-down"></i></a>
+                 <a href="/project/{{ tag }}" id="{{tag}}" class="list-group-item strong list-project">{{ name }}<i class="fa fa-caret-down"></i></a>
                   {% endfor %}
               </div>
       {% endfor %}
@@ -68,9 +68,8 @@ var tip = d3.tip()
     .attr('class', 'd3-tip')
     .offset([-10, 0])
     .html(function(d) {
-        return "<strong>Example: </strong><span style='color:tomato'>" + d.example + "</span><br><strong>Lemmas: </strong><span style='color:yellow'>" + d.lemmanames + "</span><br><strong>LexName: </strong><span style='color:orange'>" + d.lexname + "</span><br><strong>Part of Speech: </strong><span style='color:cornflowerBlue'>" + d.pos + "</span><br><strong>Similar Words:</strong><span style='color:blue'> " + d.similartos + "</span>";
+        return "<a href='/project/" + d.tag + "'><strong><span style='color:tomato'>" + d.tag + "</span></a>";
 })
-
 
 // D3
 
@@ -85,9 +84,9 @@ var nodes = [
     {% for project in projects %}
         {% for name, tag, class in project["project"] %}
             {% if project["count"] != "{{ n }}" %}
-                {"cluster": {{ project["count"] }}, radius: "10", color: colors[{{ project["count"]}} ]},
+                {"cluster": {{ project["count"] }}, radius: "10", color: colors[{{ project["count"]}}], tag: "{{tag}}" },
             {% else %}
-                {"cluster": {{ project["count"] }}, radius: "10", color: colors[{{ project["count"]}}}
+                {"cluster": {{ project["count"] }}, radius: "10", color: colors[{{ project["count"]}}], tag: "{{tag}}" }
             {% endif %}
         {% endfor %}
     {% endfor %}
@@ -108,6 +107,7 @@ var nodes = d3.range(n).map(function(ii) {
   return {
     radius: Math.sqrt(v) * maxRadius,
     color: nodes[ii].color,
+    tag: nodes[ii].tag,
     cy: x(i),
     cx: width / 2
   };
@@ -125,11 +125,18 @@ var svg = d3.select("#brain").append("svg")
     .attr("width", width)
     .attr("height", height);
 
+svg.call(tip);
+
 var circle = svg.selectAll("circle")
     .data(nodes)
   .enter().append("circle")
     .attr("r", function(d) { return d.radius; })
     .style("fill", function(d) { return d.color; })
+    .on('mouseout.tip', tip.hide)
+    .on('mouseover.tip', tip.show)
+    .on('click', function(d){
+        window.location("/project/" + d.tag)
+    })
     .call(force.drag);
 
 function tick(e) {

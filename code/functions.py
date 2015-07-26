@@ -1,5 +1,12 @@
 import pandas
 
+# Get main data for d3
+def get_data():
+    projects = get_projects()
+    n = len(projects)
+    m = get_count()
+    return projects,n,m
+ 
 # Read in projects from tsv
 def get_projects():
     projects = pandas.read_csv("static/projects.tsv",sep="\t")

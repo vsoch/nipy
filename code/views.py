@@ -8,37 +8,38 @@ import os
 @app.route('/')
 def home():
 
-    projects = get_projects()
-    n = len(projects)
-    m = get_count()
+    projects,n,m = get_data()
     return render_template('index.html',projects=projects, n=n, m=m)
 
 # Blog Roll
 @app.route('/blog')
 def blog():
 
-    projects = get_projects()
+    projects,n,m = get_data()
     posts = [page for page in pages if 'date' in page.meta]
 
     # Sort pages by date
     sorted_posts = sorted(posts, reverse=True,
         key=lambda page: page.meta['date'])
-    return render_template('blog.html', pages=sorted_posts, projects=projects)
+    return render_template('blog.html', pages=sorted_posts, projects=projects, n=n, m=m)
 
 # Single blog page
 @app.route('/<path:path>/')
 def page(path):
-    projects = get_projects()
+
+    projects,n,m = get_data()
+
     # Path is the filename of a page, without the file extension
     # e.g. "welcome.md" --> "welcome"
     page = pages.get_or_404(path)
-    return render_template('page.html', page=page, projects=projects)
+    return render_template('page.html', page=page, projects=projects, n=n, m=m)
 
 # Project page
 @app.route('/project/<name>/')
 def project(name):
 
-    projects = get_projects()
+    projects,n,m = get_data()
+
     # If the template file exists
     if os.path.exists("templates/%s.html" %(name)):
         page = "%s.html" %(name)

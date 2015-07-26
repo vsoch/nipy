@@ -17,6 +17,13 @@
     border: none
 }
 
+.list-project {
+}
+
+.list-class {
+    background-color: #E7E7E7;
+}
+
 .strong { font-weight: bold; }
 
 .nipy-content {

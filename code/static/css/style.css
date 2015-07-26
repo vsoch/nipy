@@ -1,3 +1,27 @@
+.container {
+    margin-right:5px
+}
+
+.logo {
+    padding-left:5px;
+    padding-bottom:50px;
+}
+
+.nipy-nav {
+    background: #E9E9E9;
+    height:100vh;
+    padding-left:25px;
+}
+
+.list-group.item 
+    border: none
+}
+
+.strong { font-weight: bold; }
+
+.nipy-content {
+}
+
 /* Tooltips */
 .d3-tip {
   line-height: 1;

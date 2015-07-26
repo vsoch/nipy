@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h1>Nipy</h1>
+
+       <div id="trait" class="col-md-8">
+           <h1>{{ behavior }}</h1>
+       </div>
+       <div class="col-md-2">
+           <h4>Definition</h4>
+           <div class="well" id="definition">
+               mouse over <img height="20px" src="http://png.findicons.com/files/icons/2770/ios_7_icons/128/brain_filled.png"/> for definition
+           </div>
+           <a onclick="showModal()" href="#" class="btn btn-xs btn-default"><span class="glyphicon glyphicon-question-sign"></span> About</a>
+           <a href="{{ url_for('static',filename='behaviors_cnp.zip') }}" class="btn btn-xs btn-default"><span class="glyphicon glyphicon-arrow-down"></span> Download</a> <a href="/cattell" class="btn btn-xs btn-default"><span class="glyphicon glyphicon-eye-open"></span> Cattell's</a>
+       </div>
+
+
+<ul class="page-list">
+  {% for page in pages %}
+      <li><a href="{{ url_for('page', path=page.path) }}">
+          {{ page.meta.title }}
+      </a>- {{ page.meta.date }}</li>
+  {% endfor %}
+</ul>
+
+<script>
+
+// Tooltips
+var tip = d3.tip()
+    .attr('class', 'd3-tip')
+    .offset([-10, 0])
+    .html(function(d) {
+        return "<strong>Example: </strong><span style='color:tomato'>" + d.example + "</span><br><strong>Lemmas: </strong><span style='color:yellow'>" + d.lemmanames + "</span><br><strong>LexName: </strong><span style='color:orange'>" + d.lexname + "</span><br><strong>Part of Speech: </strong><span style='color:cornflowerBlue'>" + d.pos + "</span><br><strong>Similar Words:</strong><span style='color:blue'> " + d.similartos + "</span>";
+})
+
+
+// D3
+
+    var width = 800,
+        height = 500
+
+    var svg = d3.select("#trait").append("svg")
+        .attr("width", width)
+        .attr("height", height);
+
+    // Call tooltips function
+    svg.call(tip);
+    
+</script>    
+
+
+{% endblock %}

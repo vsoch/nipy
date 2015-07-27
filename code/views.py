@@ -24,7 +24,7 @@ def blog():
     return render_template('blog.html', pages=sorted_posts, projects=projects, n=n, m=m)
 
 # Single blog page
-@app.route('/<path:path>/')
+@app.route('/blog/<path>/')
 def page(path):
 
     projects,n,m = get_data()
@@ -39,10 +39,30 @@ def page(path):
 def project(name):
 
     projects,n,m = get_data()
+    df = get_project_df()
+    project = df[df.markdown_tag == name]
 
     # If the template file exists
     if os.path.exists("templates/%s.html" %(name)):
         page = "%s.html" %(name)
     else:
         page = "project.html"
-    return render_template(page, projects=projects)
+    return render_template(page, projects=projects, n=n, m=m, 
+                           project=project["name"].tolist()[0], 
+                           classname=project["class"].tolist()[0],
+                           url=project["url"].tolist()[0],
+                           github=project["github"].tolist()[0])
+
+
+@app.route('/help')
+def help():
+    projects,n,m = get_data()
+    return render_template('help.html', projects=projects, n=n, m=m)
+
+
+@app.route('/contribute')
+def contribute():
+    projects,n,m = get_data()
+    return render_template('contribute.html', projects=projects, n=n, m=m)
+
+

@@ -16,6 +16,12 @@
     <style>
     .list-group-item {
         border: none;
+        border-radius: 0px;
+        background-color:black;
+        color: white;
+    }
+    .list-group-item:hover{
+        background-color: #666;
     }
     </style>
 
@@ -24,29 +30,39 @@
 
 <body>
 <div id="fade"></div>
-    <div class="row">
 
-    <!-- Navigation-->
-    <div class="navbar">
-    <div class="col-md-2 nipy-nav">
-    <h1 class="logo">Nipy</h1>
 
-    <div class="list-group panel">
-    <a href="/blog" class="list-group-item list-group-item strong">Blog </a>
-    <a href="#projects" class="list-group-item list-group-item strong" data-toggle="collapse">Projects <i class="fa fa-caret-down"></i></a>
+    <div id="wrapper">
+
+        <!-- Sidebar -->
+        <div id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+                <li class="sidebar-brand">
+                    <a href="#">
+                        Nipy
+                    </a>
+                </li>
+    <div class="list-group panel" style="border:none">
+    <a href="/blog" class="list-group-item list-group-item nav-item">Blog </a>
+    <a href="#projects" class="list-group-item list-group-item" data-toggle="collapse">Projects <i class="fa fa-caret-down"></i></a>
     <div class="collapse" id="projects">
       {% for project in projects %}
-          <a href='#collapse{{ project["count"] }}' class="list-group-item strong list-class" data-toggle="collapse">{{ project["class"] }}<i class="fa fa-caret-down"></i></a>
+          <a href='#collapse{{ project["count"] }}' class="list-group-item list-class" data-toggle="collapse">{{ project["class"] }}<i class="fa fa-caret-down"></i></a>
               <div class="collapse" id="collapse{{ project["count"] }}">
                   {% for name, tag, class in project["project"] %}
-                 <a href="/project/{{ tag }}" id="{{tag}}" class="list-group-item strong list-project">{{ name }}<i class="fa fa-caret-down"></i></a>
+                 <a href="/project/{{ tag }}" style="border-radius:0" id="{{tag}}" class="list-group-item list-project">{{ name }}<i class="fa fa-caret-down"></i></a>
                   {% endfor %}
               </div>
       {% endfor %}
     </div>  
   </div>
-</div><!-- close navigation-->
-        <div class="container">
+            </ul>
+        </div>
+        <!-- /#sidebar-wrapper -->
+
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+            <div class="container-fluid">
             <div class="col-md-9 nipy-content">
             {% block content %}{% endblock %}            
             </div>
@@ -60,7 +76,16 @@
                         <img src="{{ url_for('static',filename='img/nipy.svg') }}">
                     </div>
                 </div>
-        </div><!-- close content container-->
+            </div>
+        </div>
+        <!-- /#page-content-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
+
+
+
+
 <script>
 
 // Tooltips
@@ -135,7 +160,7 @@ var circle = svg.selectAll("circle")
     .on('mouseout.tip', tip.hide)
     .on('mouseover.tip', tip.show)
     .on('click', function(d){
-        window.location("/project/" + d.tag)
+        window.location = "/project/" + d.tag;
     })
     .call(force.drag);
 
@@ -183,6 +208,10 @@ function collide(alpha) {
   };
 }
 
+ $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+});
 </script>    
 </div><!-- close right sidebar-->
     </div><!--Close row--> 

@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
 <h1>{{ project }}</h1>
-<p>{{ page.meta.date }}</p>
-{{ page }}
+<h5>{{ class }}</h5>
+<a href="{{ url }}" class="btn btn-xs btn-default"><span class="glyphicon glyphicon-arrow-down"></span>{{ project }}</a> 
+<a href="{{ github }}" class="btn btn-xs btn-default"><span class="glyphicon glyphicon-eye-open"></span>Github</a>
 {% endblock %}

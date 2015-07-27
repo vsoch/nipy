@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>{{ project }}</h1>
+<h5>{{ classname }}</h5>
+<a href="{{ url }}" target="_blank" class="btn btn-xs btn-default"><span class="glyphicon glyphicon-arrow-down"></span>{{ project }}</a> 
+<a href="{{ github }}" target="_blank" class="btn btn-xs btn-default"><span class="glyphicon glyphicon-eye-open"></span>Github</a>
+
+<h4>NIPY is not only the name of the Neuroimaging in Python community, but also a python project for analysis of structural and functional neuroimaging data.</h4>
+{% endblock %}

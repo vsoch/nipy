@@ -1,10 +1,10 @@
-name	markdown_tag	class
-Nibabel	nibabel	File I/O and data management
-Scitran scitran	SDM	File I/O and data management
-Nilearn	nilearn	Functional MRI
-Nipy	nipy	Functional MRI
-Nitime	nitime	Functional MRI
-PyMVPA	pymvpa	Functional MRI
-Dipy	dipy	Diffusion MRI
-MNE	mne	Human electrophysiology
-Nipype	nipype	Analysis pipeline management
+name	markdown_tag	class	url	github
+Nibabel	nibabel	File I/O and data management	http://nipy.org/nibabel/	https://github.com/nipy/nibabel
+Scitran scitran	SDM	File I/O and data management	https://scitran.github.io/	https://github.com/scitran/sdm
+Nilearn	nilearn	Functional MRI	http://nilearn.github.io	https://github.com/nilearn/nilearn
+Nipy	nipy	Functional MRI	http://nipy.org	https://github.com/nipy
+Nitime	nitime	Functional MRI	http://nipy.org/nitime/	https://github.com/nipy/nitime
+PyMVPA	pymvpa	Functional MRI	http://www.pymvpa.org/	https://github.com/PyMVPA/PyMVPA
+Dipy	dipy	Diffusion MRI	http://nipy.org/dipy/	https://github.com/nipy/dipy
+MNE	mne	Human electrophysiology	http://martinos.org/mne/stable/mne-python.html	https://github.com/mne-tools/mne-python
+Nipype	nipype	Analysis pipeline management	http://www.mit.edu/~satra/nipype-nightly/	https://github.com/nipy/nipype

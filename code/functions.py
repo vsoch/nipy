@@ -7,10 +7,14 @@ def get_data():
     m = get_count()
     return projects,n,m
  
+
+def get_project_df():
+    projects = pandas.read_csv("static/projects.tsv",sep="\t")
+    return projects.sort(columns=["class","name"])
+   
 # Read in projects from tsv
 def get_projects():
-    projects = pandas.read_csv("static/projects.tsv",sep="\t")
-    projects = projects.sort(columns=["class","name"])
+    projects = get_project_df()
     # Organize by class
     project_zip = []
     count=1

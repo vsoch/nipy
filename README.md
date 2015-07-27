@@ -1,5 +1,7 @@
 # Redesign for Nipy
 
+[demo](http://www.vbmis.com/bmi/project/nipy)
+
 #### How does this site work?
 This is a flask site, meaning that the "back end" is in Python. We "freeze" it to generate a static version that can be served on nipy.github.io. Flask was chosen as an ideal solution as nipy is comprised of tools in python, and this means that examples, usage, etc., for each application can be integrated into a page.
 

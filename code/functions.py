@@ -1,3 +1,4 @@
+from app import app, pages
 import pandas
 
 # Get main data for d3
@@ -31,3 +32,12 @@ def get_projects():
 
 def get_count():
     return(pandas.read_csv("static/projects.tsv",sep="\t").shape[0])
+
+# Get blog pages
+def get_pages():
+    posts = [page for page in pages if 'date' in page.meta]
+
+    # Sort pages by date
+    sorted_posts = sorted(posts, reverse=True,
+        key=lambda page: page.meta['date'])
+    return sorted_posts

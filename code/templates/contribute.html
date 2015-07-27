@@ -20,6 +20,7 @@
 
 <p>To add a post, create a new file under the blog folder. Name it something like: mypost.md, be sure to include a metadata block that looks something like this:</p>
 
+<div class="well">
 ---
 title: "The new Nipy community portal"
 categories: articles
@@ -27,11 +28,13 @@ modified: 2015-06-02
 comments: true
 author: arokem
 ---
+</div>
 
 <p>If you don’t want people to comment on your post, simply set the comments block to false. But isn’t it fun to have a conversation? Add a section about yourself to the _data/authors.yml file and a corresponding image to the images folder. If you want to add images to your post, put these image files in the images folder at the root level of the repository as well. Your own photo will be automatically added to the end of your post, and you can insert the content images into your post markdown text such as the following:</p>
 
+<div class="well">
 ![Reggie](http://nipy.github.io/images/reggie.png)
-
+</div>
 <p>Which will result in and image like this:</p>
 
 <img src="{{ url_for('static',filename='img/reggie.png') }}"/>

@@ -8,20 +8,18 @@ import os
 @app.route('/')
 def home():
 
+    pages = get_pages()
     projects,n,m = get_data()
-    return render_template('index.html',projects=projects, n=n, m=m)
+    return render_template('index.html',projects=projects, n=n, m=m, page=pages[0])
 
 # Blog Roll
 @app.route('/blog')
 def blog():
 
     projects,n,m = get_data()
-    posts = [page for page in pages if 'date' in page.meta]
+    pages = get_pages()
 
-    # Sort pages by date
-    sorted_posts = sorted(posts, reverse=True,
-        key=lambda page: page.meta['date'])
-    return render_template('blog.html', pages=sorted_posts, projects=projects, n=n, m=m)
+    return render_template('blog.html', pages=pages, projects=projects, n=n, m=m)
 
 # Single blog page
 @app.route('/blog/<path>/')
@@ -59,6 +57,10 @@ def help():
     projects,n,m = get_data()
     return render_template('help.html', projects=projects, n=n, m=m)
 
+@app.route('/conduct')
+def conduct():
+    projects,n,m = get_data()
+    return render_template('conduct.html', projects=projects, n=n, m=m)
 
 @app.route('/contribute')
 def contribute():

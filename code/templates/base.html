@@ -3,13 +3,13 @@
     <title>{% block page_title %}Nipy{% endblock %}</title>
     <link rel="icon" type="image/png" sizes="96x96" href="{{ url_for('static',filename='img/favicon-96x96.png') }}">
     <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/bootstrap.min.css') }}">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
     <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
     <link href='http://fonts.googleapis.com/css?family=Roboto:300' rel='stylesheet' type='text/css'>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
     <script src="{{ url_for('static',filename='js/tipsy.js') }}"></script>
-   
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
     <link href="{{ url_for('static',filename='css/style.css') }}" rel="stylesheet" />
     {% block head %}{% endblock %}
 
@@ -21,6 +21,9 @@
         color: white;
     }
     .list-group-item:hover{
+        background-color: #666;
+    }
+    .nav-item:hover {
         background-color: #666;
     }
     </style>
@@ -38,23 +41,27 @@
         <div id="sidebar-wrapper">
             <ul class="sidebar-nav">
                 <li class="sidebar-brand">
-                    <a href="#">
+                    <a href="/">
                         Nipy
                     </a>
                 </li>
     <div class="list-group panel" style="border:none">
-    <a href="/blog" class="list-group-item list-group-item nav-item">Blog </a>
-    <a href="#projects" class="list-group-item list-group-item" data-toggle="collapse">Projects <i class="fa fa-caret-down"></i></a>
+    <a href="/blog" style="color:white" class="list-group-item list-group-item nav-item">Blog </a>
+    <a href="#projects" style="color:white" class="list-group-item list-group-item" data-toggle="collapse">Projects <i class="fa fa-caret-down"></i></a>
     <div class="collapse" id="projects">
       {% for project in projects %}
-          <a href='#collapse{{ project["count"] }}' class="list-group-item list-class" data-toggle="collapse">{{ project["class"] }}<i class="fa fa-caret-down"></i></a>
-              <div class="collapse" id="collapse{{ project["count"] }}">
+          <a href='#collapse{{ project["count"] }}' class="list-group-item list-class" data-toggle="collapse">{{ project["class"] }}</a>
+              <div class="collapse" id="collapse{{ project["count"] }}" style="color:lime">
                   {% for name, tag, class in project["project"] %}
-                 <a href="/project/{{ tag }}" style="border-radius:0" id="{{tag}}" class="list-group-item list-project">{{ name }}<i class="fa fa-caret-down"></i></a>
+                 <a href="/project/{{ tag }}" style="border-radius:0px; color:lime;" id="{{tag}}" class="list-group-item list-project">{{ name }}</a>
                   {% endfor %}
               </div>
       {% endfor %}
     </div>  
+    <a href="/help" style="color:white" class="list-group-item list-group-item nav-item">Help </a>
+    <a href="/contribute" style="color:white" class="list-group-item list-group-item nav-item">Contribute </a>
+    <a href="/conduct" style="color:white" class="list-group-item list-group-item nav-item">Code of Conduct </a>
+
   </div>
             </ul>
         </div>

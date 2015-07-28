@@ -41,10 +41,11 @@ def project(name):
     project = df[df.markdown_tag == name]
 
     # If the template file exists
-    if os.path.exists("templates/%s.html" %(name)):
-        page = "%s.html" %(name)
-    else:
-        page = "project.html"
+    #if os.path.exists("templates/%s.html" %(name)):
+    # Note - this is disabled because it ran into trouble on freezing
+    page = "%s.html" %(name)
+    #else:
+    #    page = "project.html"
     return render_template(page, projects=projects, n=n, m=m, 
                            project=project["name"].tolist()[0], 
                            classname=project["class"].tolist()[0],

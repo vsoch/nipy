@@ -9,7 +9,7 @@
     <link href='https://fonts.googleapis.com/css?family=Roboto:300' rel='stylesheet' type='text/css'>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
     <script src="/nipy/static/js/tipsy.js"></script>
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/nipy/static/css/font-awesome.min.css">
     <link href="/nipy/static/css/style.css" rel="stylesheet" />
     
 
@@ -74,7 +74,7 @@
                   
                   <a href="/nipy/project/nibabel/" style="border-radius:0px; color:lime;" id="nibabel" class="list-group-item list-project">Nibabel</a>
                   
-                  <a href="/nipy/project/SDM/" style="border-radius:0px; color:lime;" id="SDM" class="list-group-item list-project">Scitran scitran</a>
+                  <a href="/nipy/project/sdm/" style="border-radius:0px; color:lime;" id="sdm" class="list-group-item list-project">Scitran scitran</a>
                   
               </div>
       
@@ -114,9 +114,15 @@
             <div class="col-md-9 nipy-content">
             
 <h1>Nibabel</h1>
-<h5></h5>
-<a href="http://nipy.org/nibabel/" class="btn btn-xs btn-default"><span class="glyphicon glyphicon-arrow-down"></span>Nibabel</a> 
-<a href="https://github.com/nipy/nibabel" class="btn btn-xs btn-default"><span class="glyphicon glyphicon-eye-open"></span>Github</a>
+<h5>File I/O and data management</h5>
+<a href="http://nipy.org/nibabel/" target="_blank" class="btn btn-sm btn-default"><span class="fa fa-home"></span> Nibabel</a> 
+<a href="https://github.com/nipy/nibabel" target="_blank" class="btn btn-sm btn-default"><span class="fa fa-github"></span> Github</a>
+
+<h4>Read / write access to some common neuroimaging file formats.</h4>
+
+<p>This package provides read +/- write access to some common medical and neuroimaging file formats, including: ANALYZE (plain, SPM99, SPM2 and later), GIFTI, NIfTI1, NIfTI2, MINC1, MINC2, MGH and ECAT as well as Philips PAR/REC. We can read and write Freesurfer geometry, and read Freesurfer morphometry and annotation files. There is some very limited support for DICOM. NiBabel is the successor of PyNIfTI.</p>
+
+<p>The various image format classes give full or selective access to header (meta) information and access to the image data is made available via NumPy arrays.</p>
 
             </div>
            <!-- Sidebar with logo -->
@@ -178,7 +184,7 @@ var nodes = [
             
         
             
-                {"cluster": 3, radius: "10", color: colors[3], tag: "SDM" },
+                {"cluster": 3, radius: "10", color: colors[3], tag: "sdm" },
             
         
     

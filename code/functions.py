@@ -7,12 +7,12 @@ def get_data():
     n = len(projects)
     m = get_count()
     return projects,n,m
- 
+
 
 def get_project_df():
     projects = pandas.read_csv("static/projects.tsv",sep="\t")
     return projects.sort(columns=["class","name"])
-   
+
 # Read in projects from tsv
 def get_projects():
     projects = get_project_df()
@@ -23,7 +23,10 @@ def get_projects():
         project_subset = projects[projects["class"] == project_class]
         project_subset = zip(project_subset["name"].tolist(),
                              project_subset["markdown_tag"].tolist(),
-                             project_subset["class"].tolist())
+                             project_subset["class"].tolist(),
+                             project_subset["description"].tolist(),
+                             project_subset["github"].tolist(),
+                             project_subset["url"].tolist())
         project_zip.append({"class":project_class,
                             "project":project_subset,
                             "count":count})

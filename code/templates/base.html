@@ -52,12 +52,12 @@
       {% for project in projects %}
           <a href='#collapse{{ project["count"] }}' class="list-group-item list-class" data-toggle="collapse">{{ project["class"] }}</a>
               <div class="collapse" id="collapse{{ project["count"] }}" style="color:lime">
-                  {% for name, tag, class in project["project"] %}
+                  {% for name, tag, class, description, github, url in project["project"] %}
                  <a href="/project/{{ tag }}" style="border-radius:0px; color:lime;" id="{{tag}}" class="list-group-item list-project">{{ name }}</a>
                   {% endfor %}
               </div>
       {% endfor %}
-    </div>  
+    </div>
     <a href="/help" style="color:white" class="list-group-item list-group-item nav-item">Help </a>
     <a href="/contribute" style="color:white" class="list-group-item list-group-item nav-item">Contribute </a>
     <a href="/conduct" style="color:white" class="list-group-item list-group-item nav-item">Code of Conduct </a>
@@ -71,7 +71,7 @@
         <div id="page-content-wrapper">
             <div class="container-fluid">
             <div class="col-md-9 nipy-content">
-            {% block content %}{% endblock %}            
+            {% block content %}{% endblock %}
             </div>
            <!-- Sidebar with logo -->
             <div class="col-md-1">
@@ -108,13 +108,13 @@ var tip = d3.tip()
 
 var n = {{ n }}; // number of distinct clusters (classes)
 var m = {{ m }}; // total objects
- 
+
 // Colors to match nipy logo
-var colors = ["#000000","#FFFFCE","#AAA89","#669900","#CCCCCC"]
+var colors = ["#000000","#FFFFCE","#AAA89","#CCCCCC","#669900"]
 
 var nodes = [
     {% for project in projects %}
-        {% for name, tag, class in project["project"] %}
+        {% for name, tag, class, description, github, url in project["project"] %}
             {% if project["count"] != "{{ n }}" %}
                 {"cluster": {{ project["count"] }}, radius: "10", color: colors[{{ project["count"]}}], tag: "{{tag}}" },
             {% else %}
@@ -126,18 +126,18 @@ var nodes = [
 
 var width = 100,
     height = 50,
-    padding = 10, // separation between nodes
-    maxRadius = 10;
+    padding = 5, // separation between nodes
+    maxRadius = 8;
 
 var x = d3.scale.ordinal()
     .domain(d3.range(m))
     .rangePoints([0, width], 1);
 
-var nodes = d3.range(n).map(function(ii) {
+var nodes = d3.range(m).map(function(ii) {
   var i = nodes[ii].cluster,
       v = (i + 1) / m * -Math.log(Math.random());
   return {
-    radius: Math.sqrt(v) * maxRadius,
+    radius: Math.max(3,Math.sqrt(v) * maxRadius),
     color: nodes[ii].color,
     tag: nodes[ii].tag,
     cy: x(i),
@@ -219,7 +219,7 @@ function collide(alpha) {
         e.preventDefault();
         $("#wrapper").toggleClass("toggled");
 });
-</script>    
+</script>
 </div><!-- close right sidebar-->
-    </div><!--Close row--> 
+    </div><!--Close row-->
 </html>

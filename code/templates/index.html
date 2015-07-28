@@ -2,7 +2,32 @@
 {% block head %}
 {% endblock %}
 {% block content %}
+<h1 style="margin-bottom:30px">Welcome to nipy.github.io</h1>
+<!-- Show all projects -->
+<!DOCTYPE html>
+<div class="panel-group" id="accordion">
+  {% for project in projects %}
+    {% for name, tag, class, description, github, url in project["project"] %}
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h4 class="panel-title">
+                <a data-toggle="collapse" data-parent="#accordion" href="#pr{{ project["count"] }}">{{ name }} </a>
+                <a href="{{ github }}" target="_blank"><i style="color:#666;float:right;" class="fa fa-github"> </i></a>
+                <a href="{{ url }}" target="_blank"><i style="color:#333;float:right; margin-right:5px" class="fa fa-home"></i></a>
+            </h4>
+        </div>
+        <div id="pr{{ project["count"] }}" class="panel-collapse collapse in">
+            <div class="panel-body">
+                <p>{{ description }}</p> <a href="/project/{{ name }}"> <span style="float:right">learn more</a></span></p>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+  {% endfor %}
+</div>
+
+<!-- Show recent blog post
 <h1>{{ page.meta.title }}</h1>
 <p>{{ page.meta.date }}</p>
-{{ page }}
+{{ page }}-->
 {% endblock %}

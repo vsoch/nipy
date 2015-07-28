@@ -53,7 +53,7 @@
           <a href='#collapse{{ project["count"] }}' class="list-group-item list-class" data-toggle="collapse">{{ project["class"] }}</a>
               <div class="collapse" id="collapse{{ project["count"] }}" style="color:lime">
                   {% for name, tag, class, description, github, url in project["project"] %}
-                 <a href="/project/{{ tag }}" style="border-radius:0px; color:lime;" id="{{tag}}" class="list-group-item list-project">{{ name }}</a>
+                  <a href="{{ url_for('project', name=tag) }}" style="border-radius:0px; color:lime;" id="{{tag}}" class="list-group-item list-project">{{ name }}</a>
                   {% endfor %}
               </div>
       {% endfor %}

@@ -17,7 +17,7 @@ Projects, such as nibabel or nilearn, are arguably the most important content of
 The home page has a simple D3 visualization to show the different projects. This is ideal over a standard "corporate" image slider because it shows and gives immediate access to the content. This D3 is also produced dynamically (see below).
 
 ###### Adding a Project
-Simply add the project name, a descriptor tag (used to name the page, and other programmatic stuffs), the url to its base, and its category in the code/static/projects.tsv file. This will add the project to the site. 
+Simply add the project name, a descriptor tag (used to name the page, and other programmatic stuffs), the url to its base, and its category in the [code/static/projects.tsv](code/static/projects.tsv) file. This will add the project to the site. 
 
 ###### Advanced / Custom Pages
 

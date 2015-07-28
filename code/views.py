@@ -22,7 +22,7 @@ def blog():
     return render_template('blog.html', pages=pages, projects=projects, n=n, m=m)
 
 # Single blog page
-@app.route('/blog/<path>/')
+@app.route('/pages/<path>/')
 def page(path):
 
     projects,n,m = get_data()

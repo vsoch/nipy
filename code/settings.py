@@ -2,7 +2,7 @@
 
 import os
 
-REPO_NAME = "nipy.github.io"  # Used for FREEZER_BASE_URL
+REPO_NAME = "vsoch.github.io"  # Used for FREEZER_BASE_URL
 DEBUG = True
 
 # Assumes the app is located in the same directory
@@ -26,5 +26,5 @@ FREEZER_REMOVE_EXTRA_FILES = False  # IMPORTANT: If this is True, all app files
 # Flatpages are markdown files for blog posts.
 # Pages for projects (optional) should be generated as templates.
 FLATPAGES_MARKDOWN_EXTENSIONS = ['codehilite']
-FLATPAGES_ROOT = os.path.join(APP_DIR, 'blog')
+FLATPAGES_ROOT = os.path.join(APP_DIR, 'pages')
 FLATPAGES_EXTENSION = '.md'

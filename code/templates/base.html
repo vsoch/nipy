@@ -2,7 +2,7 @@
 <head>
     <title>{% block page_title %}Nipy{% endblock %}</title>
     <link rel="icon" type="image/png" sizes="96x96" href="{{ url_for('static',filename='img/favicon-96x96.png') }}">
-    <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script src="{{ url_for('static',filename='js/jquery-2.1.4.min.js') }}"></script>
     <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/bootstrap.min.css') }}">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
     <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
@@ -51,7 +51,7 @@
                     </a>
                 </li>
     <div class="list-group panel" style="border:none">
-    <a href="/blog" style="color:white" class="list-group-item list-group-item nav-item">Blog </a>
+    <a href="{{ url_for('blog') }}" style="color:white" class="list-group-item list-group-item nav-item">Blog </a>
     <a href="#projects" style="color:white" class="list-group-item list-group-item" data-toggle="collapse">Projects <i class="fa fa-caret-down"></i></a>
     <div class="collapse" id="projects">
       {% for project in projects %}
@@ -63,9 +63,9 @@
               </div>
       {% endfor %}
     </div>
-    <a href="/help" style="color:white" class="list-group-item list-group-item nav-item">Help </a>
-    <a href="/contribute" style="color:white" class="list-group-item list-group-item nav-item">Contribute </a>
-    <a href="/conduct" style="color:white" class="list-group-item list-group-item nav-item">Code of Conduct </a>
+    <a href="{{ url_for('help', name=tag) }}" style="color:white" class="list-group-item list-group-item nav-item">Help </a>
+    <a href="{{ url_for('contribute') }}" style="color:white" class="list-group-item list-group-item nav-item">Contribute </a>
+    <a href="{{ url_for('conduct') }}" style="color:white" class="list-group-item list-group-item nav-item">Code of Conduct </a>
 
   </div>
             </ul>

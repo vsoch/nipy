@@ -13,7 +13,7 @@ def home():
     return render_template('index.html',projects=projects, n=n, m=m, page=pages[0])
 
 # Blog Roll
-@app.route('/blog')
+@app.route('/blog/')
 def blog():
 
     projects,n,m = get_data()
@@ -52,17 +52,17 @@ def project(name):
                            github=project["github"].tolist()[0])
 
 
-@app.route('/help')
+@app.route('/help/')
 def help():
     projects,n,m = get_data()
     return render_template('help.html', projects=projects, n=n, m=m)
 
-@app.route('/conduct')
+@app.route('/conduct/')
 def conduct():
     projects,n,m = get_data()
     return render_template('conduct.html', projects=projects, n=n, m=m)
 
-@app.route('/contribute')
+@app.route('/contribute/')
 def contribute():
     projects,n,m = get_data()
     return render_template('contribute.html', projects=projects, n=n, m=m)

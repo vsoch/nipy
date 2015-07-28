@@ -1,0 +1,10 @@
+name	markdown_tag	class	url	github	description
+Nibabel	nibabel	File I/O and data management	http://nipy.org/nibabel/	https://github.com/nipy/nibabel	Read / write access to some common neuroimaging file formats.
+Scitran scitran	SDM	File I/O and data management	https://scitran.github.io/	https://github.com/scitran/sdm	SciTran SDM delivers efficient and robust archiving, organization, and sharing of scientific data.
+Nilearn	nilearn	Functional MRI	http://nilearn.github.io	https://github.com/nilearn/nilearn	Nilearn is a Python module for fast and easy statistical learning on NeuroImaging data.
+Nipy	nipy	Functional MRI	http://nipy.org	https://github.com/nipy	NIPY is not only the name of the Neuroimaging in Python community, but also a python project for analysis of structural and functional neuroimaging data.
+Nitime	nitime	Functional MRI	http://nipy.org/nitime/	https://github.com/nipy/nitime	Nitime is a library for time-series analysis of data from neuroscience experiments.
+PyMVPA	pymvpa	Functional MRI	http://www.pymvpa.org/	https://github.com/PyMVPA/PyMVPA	PyMVPA is a Python package intended to ease statistical learning analyses of large datasets.
+Dipy	dipy	Diffusion MRI	http://nipy.org/dipy/	https://github.com/nipy/dipy	Dipy is a free and open source software project focusing mainly on diffusion magnetic resonance imaging (dMRI) analysis.
+MNE	mne	Human electrophysiology	http://martinos.org/mne/stable/mne-python.html	https://github.com/mne-tools/mne-python	MNE is a software package for processing magnetoencephalography (MEG) and electroencephalography (EEG) data.
+Nipype	nipype	Analysis pipeline management	http://www.mit.edu/~satra/nipype-nightly/	https://github.com/nipy/nipype	Nipype provides a uniform interface to existing neuroimaging software and facilitates interaction between these packages within a single workflow.

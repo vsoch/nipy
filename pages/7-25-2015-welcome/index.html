@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<head>
+    <title>Nipy</title>
+    <link rel="icon" type="image/png" sizes="96x96" href="/vsoch.github.io/static/img/favicon-96x96.png">
+    <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="/vsoch.github.io/static/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <link href='http://fonts.googleapis.com/css?family=Roboto:300' rel='stylesheet' type='text/css'>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
+    <script src="/vsoch.github.io/static/js/tipsy.js"></script>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <link href="/vsoch.github.io/static/css/style.css" rel="stylesheet" />
+    
+
+    <!-- Syntax highlighting -->
+    <link rel="stylesheet" href="/vsoch.github.io/static/css/styles/default.css">
+    <script src="/vsoch.github.io/static/js/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    <style>
+    .list-group-item {
+        border: none;
+        border-radius: 0px;
+        background-color:black;
+        color: white;
+    }
+    .list-group-item:hover{
+        background-color: #666;
+    }
+    .nav-item:hover {
+        background-color: #666;
+    }
+    </style>
+
+</head>
+<meta charset="utf-8">
+
+<body>
+<div id="fade"></div>
+
+
+    <div id="wrapper">
+
+        <!-- Sidebar -->
+        <div id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+                <li class="sidebar-brand">
+                    <a href="/">
+                        Nipy
+                    </a>
+                </li>
+    <div class="list-group panel" style="border:none">
+    <a href="/blog" style="color:white" class="list-group-item list-group-item nav-item">Blog </a>
+    <a href="#projects" style="color:white" class="list-group-item list-group-item" data-toggle="collapse">Projects <i class="fa fa-caret-down"></i></a>
+    <div class="collapse" id="projects">
+      
+          <a href='#collapse1' class="list-group-item list-class" data-toggle="collapse">Analysis pipeline management</a>
+              <div class="collapse" id="collapse1" style="color:lime">
+                  
+                  <a href="/vsoch.github.io/project/nipype/" style="border-radius:0px; color:lime;" id="nipype" class="list-group-item list-project">Nipype</a>
+                  
+              </div>
+      
+          <a href='#collapse2' class="list-group-item list-class" data-toggle="collapse">Diffusion MRI</a>
+              <div class="collapse" id="collapse2" style="color:lime">
+                  
+                  <a href="/vsoch.github.io/project/dipy/" style="border-radius:0px; color:lime;" id="dipy" class="list-group-item list-project">Dipy</a>
+                  
+              </div>
+      
+          <a href='#collapse3' class="list-group-item list-class" data-toggle="collapse">File I/O and data management</a>
+              <div class="collapse" id="collapse3" style="color:lime">
+                  
+                  <a href="/vsoch.github.io/project/nibabel/" style="border-radius:0px; color:lime;" id="nibabel" class="list-group-item list-project">Nibabel</a>
+                  
+                  <a href="/vsoch.github.io/project/SDM/" style="border-radius:0px; color:lime;" id="SDM" class="list-group-item list-project">Scitran scitran</a>
+                  
+              </div>
+      
+          <a href='#collapse4' class="list-group-item list-class" data-toggle="collapse">Functional MRI</a>
+              <div class="collapse" id="collapse4" style="color:lime">
+                  
+                  <a href="/vsoch.github.io/project/nilearn/" style="border-radius:0px; color:lime;" id="nilearn" class="list-group-item list-project">Nilearn</a>
+                  
+                  <a href="/vsoch.github.io/project/nipy/" style="border-radius:0px; color:lime;" id="nipy" class="list-group-item list-project">Nipy</a>
+                  
+                  <a href="/vsoch.github.io/project/nitime/" style="border-radius:0px; color:lime;" id="nitime" class="list-group-item list-project">Nitime</a>
+                  
+                  <a href="/vsoch.github.io/project/pymvpa/" style="border-radius:0px; color:lime;" id="pymvpa" class="list-group-item list-project">PyMVPA</a>
+                  
+              </div>
+      
+          <a href='#collapse5' class="list-group-item list-class" data-toggle="collapse">Human electrophysiology</a>
+              <div class="collapse" id="collapse5" style="color:lime">
+                  
+                  <a href="/vsoch.github.io/project/mne/" style="border-radius:0px; color:lime;" id="mne" class="list-group-item list-project">MNE</a>
+                  
+              </div>
+      
+    </div>
+    <a href="/help" style="color:white" class="list-group-item list-group-item nav-item">Help </a>
+    <a href="/contribute" style="color:white" class="list-group-item list-group-item nav-item">Contribute </a>
+    <a href="/conduct" style="color:white" class="list-group-item list-group-item nav-item">Code of Conduct </a>
+
+  </div>
+            </ul>
+        </div>
+        <!-- /#sidebar-wrapper -->
+
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+            <div class="container-fluid">
+            <div class="col-md-9 nipy-content">
+            
+<h1>Welcome to nipy.github.io</h1>
+<p>2013-07-14 12:00:00</p>
+<p>Bacon ipsum dolor sit amet ball tip tongue pancetta jowl sirloin rump. Chuck tail pork cow, fatback jerky hamburger pancetta leberkas pig ribeye tri-tip tongue. T-bone sirloin ball tip, beef pastrami short ribs fatback tail capicola bacon. Bacon tenderloin chuck corned beef shankle brisket chicken.</p>
+<p>Bacon ribeye sausage corned beef flank. Cow kielbasa shoulder chicken pastrami. Brisket filet mignon pastrami ham hock andouille fatback frankfurter pig cow shankle corned beef turducken capicola short loin sirloin. Pig doner pastrami, cow bacon frankfurter short loin pork t-bone filet mignon. Tongue meatloaf fatback, leberkas swine turducken sirloin turkey venison cow meatball salami sausage flank. Hamburger beef ribs tenderloin corned beef, ball tip filet mignon boudin ham. Pork bacon tenderloin beef doner turkey.</p>
+
+            </div>
+           <!-- Sidebar with logo -->
+            <div class="col-md-1">
+                <div class="row">
+                    <div class="col-md-2">
+                        <div id="brain"></div>
+                    </div>
+                    <div class="col-md-10">
+                        <img src="/vsoch.github.io/static/img/nipy.svg">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /#page-content-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
+
+
+
+
+<script>
+
+// Tooltips
+var tip = d3.tip()
+    .attr('class', 'd3-tip')
+    .offset([-10, 0])
+    .html(function(d) {
+        return "<a href='/project/" + d.tag + "'><strong><span style='color:tomato'>" + d.tag + "</span></a>";
+})
+
+// D3
+
+
+var n = 5; // number of distinct clusters (classes)
+var m = 9; // total objects
+
+// Colors to match nipy logo
+var colors = ["#000000","#FFFFCE","#AAA89","#CCCCCC","#669900"]
+
+var nodes = [
+    
+        
+            
+                {"cluster": 1, radius: "10", color: colors[1], tag: "nipype" },
+            
+        
+    
+        
+            
+                {"cluster": 2, radius: "10", color: colors[2], tag: "dipy" },
+            
+        
+    
+        
+            
+                {"cluster": 3, radius: "10", color: colors[3], tag: "nibabel" },
+            
+        
+            
+                {"cluster": 3, radius: "10", color: colors[3], tag: "SDM" },
+            
+        
+    
+        
+            
+                {"cluster": 4, radius: "10", color: colors[4], tag: "nilearn" },
+            
+        
+            
+                {"cluster": 4, radius: "10", color: colors[4], tag: "nipy" },
+            
+        
+            
+                {"cluster": 4, radius: "10", color: colors[4], tag: "nitime" },
+            
+        
+            
+                {"cluster": 4, radius: "10", color: colors[4], tag: "pymvpa" },
+            
+        
+    
+        
+            
+                {"cluster": 5, radius: "10", color: colors[5], tag: "mne" },
+            
+        
+    
+    ];
+
+var width = 100,
+    height = 50,
+    padding = 5, // separation between nodes
+    maxRadius = 8;
+
+var x = d3.scale.ordinal()
+    .domain(d3.range(m))
+    .rangePoints([0, width], 1);
+
+var nodes = d3.range(m).map(function(ii) {
+  var i = nodes[ii].cluster,
+      v = (i + 1) / m * -Math.log(Math.random());
+  return {
+    radius: Math.max(3,Math.sqrt(v) * maxRadius),
+    color: nodes[ii].color,
+    tag: nodes[ii].tag,
+    cy: x(i),
+    cx: width / 2
+  };
+});
+
+var force = d3.layout.force()
+    .nodes(nodes)
+    .size([width, height])
+    .gravity(0)
+    .charge(0)
+    .on("tick", tick)
+    .start();
+
+var svg = d3.select("#brain").append("svg")
+    .attr("width", width)
+    .attr("height", height);
+
+svg.call(tip);
+
+var circle = svg.selectAll("circle")
+    .data(nodes)
+  .enter().append("circle")
+    .attr("r", function(d) { return d.radius; })
+    .style("fill", function(d) { return d.color; })
+    .on('mouseout.tip', tip.hide)
+    .on('mouseover.tip', tip.show)
+    .on('click', function(d){
+        window.location = "/project/" + d.tag;
+    })
+    .call(force.drag);
+
+function tick(e) {
+  circle
+      .each(gravity(.2 * e.alpha))
+      .each(collide(.5))
+      .attr("cx", function(d) { return d.x = Math.max(d.radius, Math.min(width - d.radius, d.x)); })
+      .attr("cy", function(d) { return d.y = Math.max(d.radius, Math.min(height - d.radius, d.y)); });
+}
+
+// Move nodes toward cluster focus.
+function gravity(alpha) {
+  return function(d) {
+    d.y += (d.cy - d.y) * alpha;
+    d.x += (d.cx - d.x) * alpha;
+  };
+}
+
+// Resolve collisions between nodes.
+function collide(alpha) {
+  var quadtree = d3.geom.quadtree(nodes);
+  return function(d) {
+    var r = d.radius + maxRadius + padding,
+        nx1 = d.x - r,
+        nx2 = d.x + r,
+        ny1 = d.y - r,
+        ny2 = d.y + r;
+    quadtree.visit(function(quad, x1, y1, x2, y2) {
+      if (quad.point && (quad.point !== d)) {
+        var x = d.x - quad.point.x,
+            y = d.y - quad.point.y,
+            l = Math.sqrt(x * x + y * y),
+            r = d.radius + quad.point.radius + (d.color !== quad.point.color) * padding;
+        if (l < r) {
+          l = (l - r) / l * alpha;
+          d.x -= x *= l;
+          d.y -= y *= l;
+          quad.point.x += x;
+          quad.point.y += y;
+        }
+      }
+      return x1 > nx2 || x2 < nx1 || y1 > ny2 || y2 < ny1;
+    });
+  };
+}
+
+ $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+});
+</script>
+</div><!-- close right sidebar-->
+    </div><!--Close row-->
+</html>

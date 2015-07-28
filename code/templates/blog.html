@@ -1,11 +1,38 @@
 {% extends "base.html" %}
 {% block content %}
-<h1>Nipy Blog</h1>
-<ul class="page-list">
-  {% for page in pages %}
-      <li><a href="{{ url_for('page', path=page.path) }}">
-          {{ page.meta.title }}
-      </a></li>
-  {% endfor %}
-</ul>
+
+
+<!-- Blog Header -->
+<header class="intro-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-md-10">
+                <div class="site-heading">
+                    <h1>Nipy</h1>
+                    <hr class="small">
+                    <span class="subheading">nipy.github.io</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Main Content -->
+<div class="container">
+    <div class="row">
+        <div class="col-lg-8 col-md-10">
+
+            {% for page in pages %}	
+            <div class="post-preview">
+                <a href="{{ url_for('page', path=page.path) }}">
+                    <h2 class="post-title">{{ page.meta.title }}</h2>        
+                </a>
+                <p class="post-meta">Posted {{ page.meta.date }}</p>
+            </div>
+            <hr>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+<hr>
 {% endblock %}

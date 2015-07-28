@@ -9,7 +9,7 @@
     <link href='https://fonts.googleapis.com/css?family=Roboto:300' rel='stylesheet' type='text/css'>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
     <script src="/nipy/static/js/tipsy.js"></script>
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/nipy/static/css/font-awesome.min.css">
     <link href="/nipy/static/css/style.css" rel="stylesheet" />
     
 
@@ -74,7 +74,7 @@
                   
                   <a href="/nipy/project/nibabel/" style="border-radius:0px; color:lime;" id="nibabel" class="list-group-item list-project">Nibabel</a>
                   
-                  <a href="/nipy/project/SDM/" style="border-radius:0px; color:lime;" id="SDM" class="list-group-item list-project">Scitran scitran</a>
+                  <a href="/nipy/project/sdm/" style="border-radius:0px; color:lime;" id="sdm" class="list-group-item list-project">Scitran scitran</a>
                   
               </div>
       
@@ -114,9 +114,24 @@
             <div class="col-md-9 nipy-content">
             
 <h1>Nipype</h1>
-<h5></h5>
-<a href="http://www.mit.edu/~satra/nipype-nightly/" class="btn btn-xs btn-default"><span class="glyphicon glyphicon-arrow-down"></span>Nipype</a> 
-<a href="https://github.com/nipy/nipype" class="btn btn-xs btn-default"><span class="glyphicon glyphicon-eye-open"></span>Github</a>
+<h5>Analysis pipeline management</h5>
+<a href="http://www.mit.edu/~satra/nipype-nightly/" target="_blank" class="btn btn-sm btn-default"><span class="fa fa-home"></span> Nipype</a> 
+<a href="https://github.com/nipy/nipype" target="_blank" class="btn btn-sm btn-default"><span class="fa fa-github"></span> Github</a>
+
+<h4>Current neuroimaging software offer users an incredible opportunity to analyze data using a variety of different algorithms. However, this has resulted in a heterogeneous collection of specialized applications without transparent interoperability or a uniform operating interface.</h4>
+
+<p>Nipype, an open-source, community-developed initiative under the umbrella of NiPy, is a Python project that provides a uniform interface to existing neuroimaging software and facilitates interaction between these packages within a single workflow. Nipype provides an environment that encourages interactive exploration of algorithms from different packages (e.g., ANTS, SPM, FSL, FreeSurfer, Camino, MRtrix, MNE, AFNI, Slicer), eases the design of workflows within and between packages, and reduces the learning curve necessary to use different packages. Nipype is creating a collaborative platform for neuroimaging software development in a high-level language and addressing limitations of existing pipeline systems.</p>
+
+<h2>Nipype allows you to:</h2>
+
+<ul>
+<li>Easily interact with tools from different software packages.</li>
+<li>Combine processing steps from different software packages.</li>
+<li>Develop new workflows faster by reusing common steps from old ones.</li>
+<li>Process data faster by running it in parallel on many cores/machines.</li>
+<li>Make your research easily reproducible.</li>
+<li>Share your processing workflows with the community.</li>
+</ul>
 
             </div>
            <!-- Sidebar with logo -->
@@ -178,7 +193,7 @@ var nodes = [
             
         
             
-                {"cluster": 3, radius: "10", color: colors[3], tag: "SDM" },
+                {"cluster": 3, radius: "10", color: colors[3], tag: "sdm" },
             
         
     
